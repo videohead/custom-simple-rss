@@ -4,7 +4,7 @@
  * Plugin Name:   Custom Simple Rss
  * Plugin URI:    
  * Description:   A plugin to create a Custom Simple RSS Feed according to chosen parameters
- * Version:       1.0
+ * Version:       1.2
  * Author:        Danny(Danikoo) Haggag 
  * Author URI:    http://www.danikoo.com
  * License: GPLv2 or later
@@ -32,7 +32,8 @@ function call_custom_simple_rss(){
 	
 	
 	if( isset($_GET["csrp_debug"]) ) $csrp_debug = intval($_GET["csrp_debug"]);
-	if( isset($_GET["csrp_cat"]) ) $csrp_cat = intval($_GET["csrp_cat"]);
+	if( isset($_GET["csrp_show_meta"]) ) $csrp_show_meta = intval($_GET["csrp_show_meta"]);
+	if( isset($_GET["csrp_cat"]) ) $csrp_cat = sanitize_text_field($_GET["csrp_cat"]);
 	if( isset($_GET["csrp_meta_key"]) ) $csrp_meta_key = sanitize_text_field($_GET["csrp_meta_key"]);
 	if( isset($_GET["csrp_meta_value"]) ) $csrp_meta_value = sanitize_text_field($_GET["csrp_meta_value"]);
 	if( isset($_GET["csrp_meta_compare"]) ){
@@ -43,7 +44,9 @@ function call_custom_simple_rss(){
 	if( isset($_GET["csrp_orderby"]) ) $csrp_orderby = sanitize_text_field($_GET["csrp_orderby"]);
 	if( isset($_GET["csrp_order"]) ) $csrp_order = sanitize_text_field($_GET["csrp_order"]);
 	if( isset($_GET["csrp_tag"]) ) $csrp_tag = sanitize_text_field($_GET["csrp_tag"]);
-
+	if( isset($_GET["csrp_author_name"]) ) $csrp_author_name = sanitize_text_field($_GET["csrp_author_name"]);
+	if( isset($_GET["csrp_author"]) ) $csrp_author = sanitize_text_field($_GET["csrp_author"]);
+	
 	if( isset($_GET["csrp_post_type"]) ){
 		$csrp_post_type = sanitize_text_field($_GET["csrp_post_type"]);	
 	}
@@ -69,6 +72,12 @@ function call_custom_simple_rss(){
 	if( isset($csrp_tag) && $csrp_tag!='' ){
 		$args['tag'] =  $csrp_tag;
 	}	
+	if( isset($csrp_author) && $csrp_author!='' ){
+		$args['author'] =  $csrp_author;
+	}	
+	if( isset($csrp_author_name) && $csrp_author_name!='' ){
+		$args['author_name'] =  $csrp_author_name;
+	}		
 	if(  isset($csrp_orderby) && isset($csrp_order) ){
 		$args['orderby'] =  $csrp_orderby;
 		$args['order'] =  $csrp_order;

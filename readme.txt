@@ -4,7 +4,7 @@ Donate link:
 Tags: rss, custom rss, feed ,custom feed
 Requires at least: 4.0.1
 Tested up to: 4.2.2
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,9 @@ A plugin to create a your own Custom Simple RSS Feed
 according to parameters you choose!
 
 **in simple words:** 
-
+Ever wanted an rss feed for just a specific Author and specific Category?
+Or Even an rss feed for a specific Custom Field ???
+Well... now you got it !
 The plugin does not alter your default wordpress feeds - it enables you to display feeds **on the fly** via specific url with pre defined url query parameters.
 
 **for example:**
@@ -66,3 +68,5 @@ No Questions
 == Changelog ==
 
 2015-07-08 12:45 first launch
+
+2015-07-16 09:45 adding author support

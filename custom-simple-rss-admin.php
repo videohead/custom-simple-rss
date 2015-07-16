@@ -84,15 +84,33 @@ function custom_simple_rss_options(){
 				<h3>How to call the URL and what each parameter does... test it don`t be shy :) </h3>
 				<hr>
 	<pre>
-	&middot; csrp_cat (int | optional)
-		'cat=4'
+	&middot; csrp_cat (string | optional)
 		Display posts that have this category (and any children of that category), using category id
-		'cat=2,6,17,38'
+		'?call_custom_simple_rss=1&csrp_cat=4'
+		
 		Display posts that have these categories, using category id
-		'cat=-12,-34,-56'
+		'?call_custom_simple_rss=1&csrp_cat=2,6,17,38'
+		
 		Display all posts except those from a category by prefixing its id with a '-' (minus) sign			
-
+		'?call_custom_simple_rss=1&csrp_cat=-12,-34,-56'
+		
+	&middot; csrp_author (string | optional)
+		Display posts by author, using author id:
+		'?call_custom_simple_rss=1&csrp_author=5'
+		
+		Show Posts From Several Authors:
+		'?call_custom_simple_rss=1&csrp_author=2,6,17,38'
+		
+		Exclude Posts Belonging to an Author:
+		'?call_custom_simple_rss=1&csrp_author=-5'
+	
+	&middot; csrp_author_name (string | optional)
+		Display posts by author, using author 'user_nicename':
+		'?call_custom_simple_rss=1&csrp_author_name=john'
+		
 	&middot; csrp_posts_per_page (int | optional) - default 20
+		show only 5 posts
+		'?call_custom_simple_rss=1&csrp_posts_per_page=5'
 	
 	&middot; csrp_orderby (string | optional) - default ‘date’
 		'ID' - Order by post id. Note the capitalization.
@@ -101,10 +119,16 @@ function custom_simple_rss_options(){
 		'date' - Order by date.
 		'modified' - Order by last modified date.
 		'rand' - Random order.
+		
+		Display posts order by name:
+		'?call_custom_simple_rss=1&csrp_orderby=name'
 	
 	&middot; csrp_order - (string | optional) - default ‘asc’
 		asc
-		desc		
+		desc	
+
+		Display posts order by name descending:
+		'?call_custom_simple_rss=1&csrp_orderby=name&csrp_order=DESC'		
 		
 	&middot; csrp_post_status (string | optional) - default ‘publish’
 		‘publish’
@@ -113,16 +137,26 @@ function custom_simple_rss_options(){
 		'future' - a post to publish in the future.
 		'trash' - post is in trashbin 
 		'any' - retrieves any status except those from post statuses with 'exclude_from_search' set to true (i.e. trash and auto-draft).
+		
+		Display only future posts:
+		'?call_custom_simple_rss=1&csrp_post_status=future'			
 	
 	&middot; csrp_post_type (string | optional) - default ‘post’
 		post
 		page
 		any custom post defined by blog
+		
+		Display Pages not Posts:
+		'?call_custom_simple_rss=1&csrp_post_type=page'	
+
+		Display custom post types (if any):
+		'?call_custom_simple_rss=1&csrp_post_type=books'		
+		
 
 	<u>filter by meta:</u>
 	any meta value that exists in post
 	&middot; csrp_meta_key (string | optional) - Custom field key.
-	&middot; csrp_meta_value (string | optional) Custom field value.	<b>!must be specified if meta_key present</b>
+	&middot; csrp_meta_value (string | optional) Custom field value.<b>!must be specified if meta_key present</b>
 	&middot; csrp_meta_compare  (string | optional) default ‘IN’
 		'LIKE'
 		'NOT LIKE'
@@ -131,11 +165,19 @@ function custom_simple_rss_options(){
 		'BETWEEN'
 		'NOT BETWEEN'
 		'NOT EXISTS'
+		
+		Display post with meta_key '_thumbnail_id' and meta_value 1448:
+		'?call_custom_simple_rss=1&csrp_posts_per_page=5&csrp_show_meta=1&csrp_meta_key=_thumbnail_id&csrp_meta_value=1448'
+		
+		Display post with meta_key '_thumbnail_id' and meta_value NOT 1448:
+		?call_custom_simple_rss=1&csrp_posts_per_page=5&csrp_show_meta=1&csrp_meta_key=_thumbnail_id&csrp_meta_value=1448&csrp_meta_compare=NOT%20IN
 	
 	<u>show post meta in feed:</u>	
-	enables the option to show all custom post fields for post. quite handy if you need the rss as an xml data for external applications or export
+	enables the option to show all custom post fields for post. 
+	quite handy if you need the rss as an xml data for external applications or export
 	disabled by default.
 	&middot; csrp_show_meta (string | optional) - default 0
+		'?call_custom_simple_rss=1&csrp_show_meta=1'
 	
 	<u>show post thumbnail in feed:</u>	
 	&middot; csrp_show_thumbnail (string | optional) - default 1 (show)
