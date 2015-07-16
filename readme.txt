@@ -19,23 +19,25 @@ according to parameters you choose!
 
 **Filter items by:**
 
-* category id *
-* post type *
-* post status *
-* tag *
-* and even meta keys and values! *
+* category id
+* post type
+* post status
+* tag
+* and even meta keys and values!
 
 **Order by:**
-* name *
-* date *
-* author *
-* ID *
-* etc *
+
+* name
+* date
+* author
+* ID
+* etc
 
 **More Features:**
-* number of items to return *
-* show post thumbnail or not? *
-* show post custom fields (espically usefull if your using your rss as an affliate feed) *
+* number of items to return
+* show post thumbnail or not?
+* show post custom fields (espically usefull if your using your rss as an affliate feed)
+
 
 == Installation ==
 
