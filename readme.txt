@@ -1,4 +1,4 @@
-=== Custom Simple Rss ===
+﻿=== Custom Simple Rss ===
 Contributors: danikoo
 Donate link: 
 Tags: rss, custom rss, feed ,custom feed
@@ -13,23 +13,40 @@ A plugin to create your own Custom Simple RSS Feed according to parameters you c
 == Description ==
 
 A plugin to create a your own Custom Simple RSS Feed 
-according to parameters you chose!
-such as:
+according to parameters you choose!
+
+Filter items by:
 - category id
 - post type
 - post status
 - tag
-- and even meta keys and values
+- and even meta keys and values!
+
+Order by:
+- name
+- date
+- author
+- ID
+- etc
+
+More Features:
+- number of items to return
+- show post thumbnail or not?
+- show post custom fields (espically usefull if your using your rss as an affliate feed)
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+1. Upload the "Custom Simple Rss" plugin to your website 
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go To "settings" and there you will find all you need under "Custom Simple Rss Plugin Options"
+4. Good Luck
 
-e.g.
+== Frequently Asked Questions ==
+No Questions
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+== Screenshots ==
+
+1. set defaults screen
 
 == Changelog ==
 
