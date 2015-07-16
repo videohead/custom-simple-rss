@@ -15,7 +15,16 @@ A plugin to create your own Custom Simple RSS Feed according to parameters you c
 A plugin to create a your own Custom Simple RSS Feed 
 according to parameters you choose!
 
-**The plugin DOES NOT alter your default wordpress feeds - it enables you to display feeds on the fly via specific url with pre defined url query parameters**
+**in simple words:** 
+
+The plugin does not alter your default wordpress feeds - it enables you to display feeds **on the fly** via specific url with pre defined url query parameters.
+
+**for example:**
+
+display only 5 items from specific category order by name descending:
+
+www.yordomain.com/?call_custom_simple_rss=1&csrp_posts_per_page=5&csrp_orderby=name&csrp_order=DESC&csrp_cat=4
+
 
 **Filter items by:**
 
@@ -34,6 +43,7 @@ according to parameters you choose!
 * etc
 
 **More Features:**
+
 * number of items to return
 * show post thumbnail or not?
 * show post custom fields (espically usefull if your using your rss as an affliate feed)
