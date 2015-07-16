@@ -1,4 +1,4 @@
-﻿=== Custom Simple Rss ===
+=== Custom Simple Rss ===
 Contributors: danikoo
 Donate link: 
 Tags: rss, custom rss, feed ,custom feed
@@ -15,26 +15,27 @@ A plugin to create your own Custom Simple RSS Feed according to parameters you c
 A plugin to create a your own Custom Simple RSS Feed 
 according to parameters you choose!
 
-** The plugin DOES NOT alter your default wordpress feeds - it enables you to display feeds on the fly via specific url with pre defined url query parameters **
+**The plugin DOES NOT alter your default wordpress feeds - it enables you to display feeds on the fly via specific url with pre defined url query parameters**
 
 **Filter items by:**
-* category id
-* post type
-* post status
-* tag
-* and even meta keys and values!
+
+* category id *
+* post type *
+* post status *
+* tag *
+* and even meta keys and values! *
 
 **Order by:**
-* name
-* date
-* author
-* ID
-* etc
+* name *
+* date *
+* author *
+* ID *
+* etc *
 
 **More Features:**
-* number of items to return
-* show post thumbnail or not?
-* show post custom fields (espically usefull if your using your rss as an affliate feed)
+* number of items to return *
+* show post thumbnail or not? *
+* show post custom fields (espically usefull if your using your rss as an affliate feed) *
 
 == Installation ==
 
