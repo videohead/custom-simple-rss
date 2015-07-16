@@ -17,8 +17,11 @@ according to parameters you choose!
 
 **in simple words:** 
 Ever wanted an rss feed for just a specific Author and specific Category?
+
 Or Even an rss feed for a specific Custom Field ???
+
 Well... now you got it !
+
 The plugin does not alter your default wordpress feeds - it enables you to display feeds **on the fly** via specific url with pre defined url query parameters.
 
 **for example:**
