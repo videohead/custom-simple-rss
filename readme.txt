@@ -4,7 +4,7 @@ Donate link:
 Tags: rss, custom rss, feed ,custom feed
 Requires at least: 4.0.1
 Tested up to: 4.2.2
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,3 +73,5 @@ No Questions
 2015-07-08 12:45 first launch
 
 2015-07-16 09:45 adding author support
+
+2015-08-14 16:23 minor bug fix - set defaults on first activate

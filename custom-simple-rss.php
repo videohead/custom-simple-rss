@@ -4,7 +4,7 @@
  * Plugin Name:   Custom Simple Rss
  * Plugin URI:    
  * Description:   A plugin to create a Custom Simple RSS Feed according to chosen parameters
- * Version:       1.2
+ * Version:       1.3
  * Author:        Danny(Danikoo) Haggag 
  * Author URI:    http://www.danikoo.com
  * License: GPLv2 or later
@@ -26,11 +26,15 @@ if ( is_admin() ){
  
 function call_custom_simple_rss(){
 	
+   
     $custom_simple_rss_options = get_option('custom_simple_rss_options');
-    //print_r($koo_popup_get_options);
-    extract($custom_simple_rss_options);	
+	if(is_array($custom_simple_rss_options)===false){
+		//set defaults and return array 
+		$custom_simple_rss_options = custom_simple_rss_set_defults();
+	}
 	
-	
+	extract($custom_simple_rss_options);
+
 	if( isset($_GET["csrp_debug"]) ) $csrp_debug = intval($_GET["csrp_debug"]);
 	if( isset($_GET["csrp_show_meta"]) ) $csrp_show_meta = intval($_GET["csrp_show_meta"]);
 	if( isset($_GET["csrp_cat"]) ) $csrp_cat = sanitize_text_field($_GET["csrp_cat"]);
@@ -181,10 +185,29 @@ function custom_simple_rss_parse_request( $wp )
 
 register_activation_hook(__FILE__, 'custom_simple_rss_activation');
 function custom_simple_rss_activation() {
-	/* does nothing */
+		$custom_simple_rss_options	= array(
+				'csrp_post_type'=> 'post',
+				'csrp_post_status'=> 'publish',
+				'csrp_posts_per_page'=> 10,
+				'csrp_show_meta'=> 0,
+				'csrp_show_thumbnail'=> 1,		
+		);
+		update_option('custom_simple_rss_options',$custom_simple_rss_options);
 }
 
 register_deactivation_hook(__FILE__, 'custom_simple_rss_deactivation');
 function custom_simple_rss_deactivation() {
-	/* does nothing */
+	//delete_option( 'custom_simple_rss_options' );
+}
+
+function custom_simple_rss_set_defults(){
+		$custom_simple_rss_options	= array(
+				'csrp_post_type'=> 'post',
+				'csrp_post_status'=> 'publish',
+				'csrp_posts_per_page'=> 10,
+				'csrp_show_meta'=> 0,
+				'csrp_show_thumbnail'=> 1,		
+		);
+		update_option('custom_simple_rss_options',$custom_simple_rss_options);
+    return $custom_simple_rss_options;
 }

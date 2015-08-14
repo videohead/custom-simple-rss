@@ -7,6 +7,7 @@ define('CUSTOM_SIMPLE_RSS_PLUGIN_ADMIN_FILE', plugin_dir_path(__FILE__)."custom-
 
 //register admin menu
 function custom_simple_rss_admin_menu() {
+	//add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function);	
 	add_options_page( 'Custom Simple Rss Plugin Options', 'Custom Simple Rss Plugin', 'manage_options', 'custom-simple-rss-admin-options', 'custom_simple_rss_options' );
     add_action( 'admin_print_styles-' . $page, 'custom_simple_rss_admin_styles' );
 }
@@ -28,14 +29,11 @@ function custom_simple_rss_options(){
 	custom_simple_rss_get_form_data();
    
     $custom_simple_rss_options = get_option('custom_simple_rss_options');
-    extract($custom_simple_rss_options);
-
-    //defaults 
-    if(!$csra_post_type) $csrp_post_type = 'post';
-    if(!$csrp_post_status) $csrp_post_status = 'publish';
-	if(!$csrp_posts_per_page) $csrp_posts_per_page = 20;
-	if(!$csrp_show_meta) $csrp_show_meta = 0;
-	if(!$csrp_show_thumbnail) $csrp_show_thumbnail = 1;	
+	if(is_array($custom_simple_rss_options)===false){
+		//set defaults and return array
+		$custom_simple_rss_options = custom_simple_rss_set_defults();
+	}
+	extract($custom_simple_rss_options);
     ?>
 
 	
