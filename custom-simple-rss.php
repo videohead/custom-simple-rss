@@ -138,7 +138,7 @@ function call_custom_simple_rss(){
 			$the_content = apply_filters('the_content',get_the_content());
 			
 			//clear content from trash
-			$allowed_tags = "<a><b><strong><i><li><left><center><right><del><strike><ol><ul><u><sup><pre><code><sub><hr><h1><h2><h3><h4><h5><h6><big><small><font><p><br><span><div><script><video><audio><dd><dl>";
+			$allowed_tags = "<img><a><b><strong><i><li><left><center><right><del><strike><ol><ul><u><sup><pre><code><sub><hr><h1><h2><h3><h4><h5><h6><big><small><font><p><br><span><div><script><video><audio><dd><dl>";
 			$the_content = htmlspecialchars_decode($the_content);
 			$the_content = strip_tags($the_content,$allowed_tags);
 			$the_content = preg_replace("/\r?\n/", "", $the_content);
