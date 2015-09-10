@@ -4,7 +4,7 @@ Donate link:
 Tags: rss, custom rss, feed ,custom feed
 Requires at least: 4.0.1
 Tested up to: 4.2.2
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,3 +77,6 @@ No Questions
 2015-08-14 16:23 minor bug fix - set defaults on first activate
 
 2015-09-10 11:23 apllied the 'the_content' filter on content encoded to extract shortcodes
+
+
+2015-09-10 18:33 removing trash from contet encoded and returning clean html

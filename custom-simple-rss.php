@@ -4,7 +4,7 @@
  * Plugin Name:   Custom Simple Rss
  * Plugin URI:    
  * Description:   A plugin to create a Custom Simple RSS Feed according to chosen parameters
- * Version:       1.4
+ * Version:       1.4.1
  * Author:        Danny(Danikoo) Haggag 
  * Author URI:    http://www.danikoo.com
  * License: GPLv2 or later
@@ -135,6 +135,17 @@ function call_custom_simple_rss(){
 
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'thumbnail' );
 			$thumb_url = $thumb['0'];
+			$the_content = apply_filters('the_content',get_the_content());
+			
+			//clear content from trash
+			$allowed_tags = "<a><b><strong><i><li><left><center><right><del><strike><ol><ul><u><sup><pre><code><sub><hr><h1><h2><h3><h4><h5><h6><big><small><font><p><br><span><div><script><video><audio><dd><dl>";
+			$the_content = htmlspecialchars_decode($the_content);
+			$the_content = strip_tags($the_content,$allowed_tags);
+			$the_content = preg_replace("/\r?\n/", "", $the_content);
+			$the_content = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $the_content);
+			$the_content = preg_replace('/\s+/',' ',$the_content); //tabs
+			$the_content = str_replace(array("\r\n", "\r", "\n", "\t"), ' ', $the_content);
+			
 				$csrp_feed_current .='
 				<item>
 						<title><![CDATA['. get_the_title() .']]></title>
@@ -147,7 +158,7 @@ function call_custom_simple_rss(){
 						<guid isPermaLink="true">'. get_permalink() .'</guid>'
 						.$collection.'
 						<description><![CDATA['. get_the_excerpt().']]></description>
-						<content:encoded><![CDATA['. apply_filters('the_content',get_the_content()) .']]></content:encoded>';
+						<content:encoded><![CDATA['. $the_content .']]></content:encoded>';
 						if($csrp_show_thumbnail==1){
 							$csrp_feed_current .='<enclosure url="'. $thumb_url .'"/>';	
 						}						
