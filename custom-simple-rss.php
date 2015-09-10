@@ -147,7 +147,7 @@ function call_custom_simple_rss(){
 						<guid isPermaLink="true">'. get_permalink() .'</guid>'
 						.$collection.'
 						<description><![CDATA['. get_the_excerpt().']]></description>
-						<content:encoded><![CDATA['. get_the_content() .']]></content:encoded>';
+						<content:encoded><![CDATA['. apply_filters('the_content',get_the_content()) .']]></content:encoded>';
 						if($csrp_show_thumbnail==1){
 							$csrp_feed_current .='<enclosure url="'. $thumb_url .'"/>';	
 						}						
