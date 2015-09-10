@@ -1,0 +1,78 @@
+#custom-simple-rss-admin-wrapper {
+	
+    background: #32373C ;
+    width: 90%;
+	min-width: 575px;
+	box-shadow: 0px 0px 6px #888;
+	-moz-box-shadow: 0px 0px 6px #888;
+	-webkit-box-shadow: 0px 0px 6px #888;
+	-moz-border-radius: 0 5px 5px 5px;
+	-webkit-border-radius: 0 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	min-height:600px;
+	position:relative;
+	padding:1%;
+	overflow:hidden;
+    float: left;
+}
+#custom-simple-rss-admin-wrapper .tabs {
+    width: 100%;
+    height: 44px;
+}
+#custom-simple-rss-admin-wrapper .tab {
+    width: 20%;
+    border: 1px solid whitesmoke;
+    background-color: aliceblue;
+    float: left;
+	margin: 0 0 0 0;
+	border-right: 2px solid white;
+	cursor:pointer;
+}
+#custom-simple-rss-admin-wrapper .tab.on {
+  border-bottom: 2px solid rgb(186, 32, 0);
+  margin-top: -1px;
+  background-color: white;
+}
+#custom-simple-rss-admin-wrapper .postbox.on {
+	display:block;
+}
+#custom-simple-rss-admin-wrapper .postbox {
+	display:none;
+}
+.custom-simple-rss-admin-label {
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    /* border-bottom: 1px solid black; */
+    width: 98%;
+	background-color: #F1F1F1;
+	background-image: -ms-linear-gradient(top,#F9F9F9,#ECECEC);
+	background-image: -moz-linear-gradient(top,#F9F9F9,#ECECEC);
+	background-image: -o-linear-gradient(top,#F9F9F9,#ECECEC);
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#F9F9F9),to(#ECECEC));
+	background-image: -webkit-linear-gradient(top,#F9F9F9,#ECECEC);
+	background-image: linear-gradient(top,#F9F9F9,#ECECEC);
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #ccc;
+	margin: 0 0 5px;
+	padding: 8px 1%;
+	cursor:default !important;
+	font-size:14px;    
+}
+.custom-simple-rss-admin-row {
+    border: solid 1px #CCC;
+	margin: 15px 0 ;
+	background: #F9F9F9 ;
+	-webkit-box-shadow: 0 1px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px rgba(0,0,0,.05);
+	box-shadow: 0 1px rgba(0, 0, 0, .05);
+	overflow: hidden;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	clear:both;
+	position:relative;
+    padding: 5px 2px;
+}
+.custom-simple-rss-admin-row textarea {
+    width: 500px;
+}
