@@ -4,7 +4,7 @@
  * Plugin Name:   Custom Simple Rss
  * Plugin URI:    
  * Description:   A plugin to create a Custom Simple RSS Feed according to chosen parameters
- * Version:       1.3
+ * Version:       1.4
  * Author:        Danny(Danikoo) Haggag 
  * Author URI:    http://www.danikoo.com
  * License: GPLv2 or later
