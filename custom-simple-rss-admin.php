@@ -34,6 +34,13 @@ function custom_simple_rss_options(){
 		$custom_simple_rss_options = custom_simple_rss_set_defults();
 	}
 	extract($custom_simple_rss_options);
+	
+	$show_content_arr = array(
+		'1'=>'show content as is(no filters)',
+		'2'=>'show clean html',
+		'0'=>'hide content',
+	);
+	
     ?>
 
 	
@@ -214,7 +221,16 @@ function custom_simple_rss_options(){
 					<div class="custom-simple-rss-admin-label">show post thumbnail in feed:</div>
 					<input type="text" name="csrp_show_thumbnail" value="<?php echo $csrp_show_thumbnail ?>">
 				</div>
-				
+				<div class="custom-simple-rss-admin-row">
+					<div class="custom-simple-rss-admin-label">show post content in feed:</div>
+					<select name="csrp_show_content">
+						<option value="<?php echo $csrp_show_content ?>"><?php echo $show_content_arr[$csrp_show_content] ?></option>
+						<option value="<?php echo $csrp_show_content ?>">------</option>
+						<option value="1">show content as is (no filters)</option>
+						<option value="2">show clean html</option>
+						<option value="0">hide content</option>
+					</select>
+				</div>				
 				<input type="hidden" name="page" value="custom-simple-rss-admin-options">
 				<input type="submit" value="GO">
 			</form>				
@@ -235,6 +251,7 @@ function custom_simple_rss_get_form_data(){
 				'csrp_posts_per_page'=> intval( $_POST["csrp_posts_per_page"] ),
 				'csrp_show_meta'=> intval( $_POST["csrp_show_meta"] ),
 				'csrp_show_thumbnail'=> intval( $_POST["csrp_show_thumbnail"] ),
+				'csrp_show_content'=> intval( $_POST["csrp_show_content"] ),
 		
 		);
         update_option('custom_simple_rss_options',$custom_simple_rss_options); 

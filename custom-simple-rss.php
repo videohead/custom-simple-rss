@@ -4,7 +4,7 @@
  * Plugin Name:   Custom Simple Rss
  * Plugin URI:    
  * Description:   A plugin to create a Custom Simple RSS Feed according to chosen parameters
- * Version:       1.4.1
+ * Version:       1.5
  * Author:        Danny(Danikoo) Haggag 
  * Author URI:    http://www.danikoo.com
  * License: GPLv2 or later
@@ -135,17 +135,21 @@ function call_custom_simple_rss(){
 
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'thumbnail' );
 			$thumb_url = $thumb['0'];
-			$the_content = apply_filters('the_content',get_the_content());
 			
-			//clear content from trash
-			$allowed_tags = "<img><a><b><strong><i><li><left><center><right><del><strike><ol><ul><u><sup><pre><code><sub><hr><h1><h2><h3><h4><h5><h6><big><small><font><p><br><span><div><script><video><audio><dd><dl>";
-			$the_content = htmlspecialchars_decode($the_content);
-			$the_content = strip_tags($the_content,$allowed_tags);
-			$the_content = preg_replace("/\r?\n/", "", $the_content);
-			$the_content = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $the_content);
-			$the_content = preg_replace('/\s+/',' ',$the_content); //tabs
-			$the_content = str_replace(array("\r\n", "\r", "\n", "\t"), ' ', $the_content);
-			
+			if($csrp_show_content==1){
+				$the_content = get_the_content();	
+			}
+			if($csrp_show_content==2){
+				$the_content = apply_filters('the_content',get_the_content());
+				//clear content from trash
+				$allowed_tags = "<img><a><b><strong><i><li><left><center><right><del><strike><ol><ul><u><sup><pre><code><sub><hr><h1><h2><h3><h4><h5><h6><big><small><font><p><br><span><div><script><video><audio><dd><dl>";
+				$the_content = htmlspecialchars_decode($the_content);
+				$the_content = strip_tags($the_content,$allowed_tags);
+				$the_content = preg_replace("/\r?\n/", "", $the_content);
+				$the_content = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $the_content);
+				$the_content = preg_replace('/\s+/',' ',$the_content); //tabs
+				$the_content = str_replace(array("\r\n", "\r", "\n", "\t"), ' ', $the_content);
+			}
 				$csrp_feed_current .='
 				<item>
 						<title><![CDATA['. get_the_title() .']]></title>
@@ -158,7 +162,10 @@ function call_custom_simple_rss(){
 						<guid isPermaLink="true">'. get_permalink() .'</guid>'
 						.$collection.'
 						<description><![CDATA['. get_the_excerpt().']]></description>
-						<content:encoded><![CDATA['. $the_content .']]></content:encoded>';
+						';
+						if($csrp_show_content!=0){
+							$csrp_feed_current .='<content:encoded><![CDATA['. $the_content .']]></content:encoded>';	
+						}							
 						if($csrp_show_thumbnail==1){
 							$csrp_feed_current .='<enclosure url="'. $thumb_url .'"/>';	
 						}						
@@ -201,14 +208,15 @@ function custom_simple_rss_activation() {
 				'csrp_post_status'=> 'publish',
 				'csrp_posts_per_page'=> 10,
 				'csrp_show_meta'=> 0,
-				'csrp_show_thumbnail'=> 1,		
+				'csrp_show_thumbnail'=> 1,
+				'csrp_show_content'=> 1,				
 		);
 		update_option('custom_simple_rss_options',$custom_simple_rss_options);
 }
 
 register_deactivation_hook(__FILE__, 'custom_simple_rss_deactivation');
 function custom_simple_rss_deactivation() {
-	//delete_option( 'custom_simple_rss_options' );
+	delete_option( 'custom_simple_rss_options' );
 }
 
 function custom_simple_rss_set_defults(){
@@ -217,7 +225,8 @@ function custom_simple_rss_set_defults(){
 				'csrp_post_status'=> 'publish',
 				'csrp_posts_per_page'=> 10,
 				'csrp_show_meta'=> 0,
-				'csrp_show_thumbnail'=> 1,		
+				'csrp_show_thumbnail'=> 1,	
+				'csrp_show_content'=> 1,				
 		);
 		update_option('custom_simple_rss_options',$custom_simple_rss_options);
     return $custom_simple_rss_options;
