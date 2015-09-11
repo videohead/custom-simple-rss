@@ -224,8 +224,10 @@ function custom_simple_rss_options(){
 				<div class="custom-simple-rss-admin-row">
 					<div class="custom-simple-rss-admin-label">show post content in feed:</div>
 					<select name="csrp_show_content">
+						<?php if(isset($csrp_show_content) && $csrp_show_content!='') : ?>
 						<option value="<?php echo $csrp_show_content ?>"><?php echo $show_content_arr[$csrp_show_content] ?></option>
 						<option value="<?php echo $csrp_show_content ?>">------</option>
+						<?php endif;?>
 						<option value="1">show content as is (no filters)</option>
 						<option value="2">show clean html</option>
 						<option value="0">hide content</option>
