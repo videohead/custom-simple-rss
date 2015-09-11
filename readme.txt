@@ -70,6 +70,12 @@ No Questions
 
 == Changelog ==
 
+**1.5**
+
+2015-09-11 06:33 version 1.5 - new!! added feature to hide content from feed or show 2 types of content(html,full)
+
+**1.4**
+
 2015-07-08 12:45 first launch
 
 2015-07-16 09:45 adding author support
@@ -79,5 +85,3 @@ No Questions
 2015-09-10 11:23 apllied the 'the_content' filter on content encoded to extract shortcodes
 
 2015-09-10 18:33 removing trash from content encoded and returning clean html
-
-2015-09-11 06:33 version 1.5 - new!! added feature to hide content from feed or show 2 types of content(html,full)
