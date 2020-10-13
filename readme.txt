@@ -1,9 +1,9 @@
 === Custom Simple Rss ===
-Contributors: danikoo
+Contributors: danikoo, videohead
 Donate link: 
 Tags: rss, custom rss, feed ,custom feed
 Requires at least: 4.0.1
-Tested up to: 4.3
+Tested up to: 5.5
 Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -52,6 +52,7 @@ www.yordomain.com/?call_custom_simple_rss=1&csrp_posts_per_page=5&csrp_orderby=n
 * number of items to return
 * show post thumbnail or not?
 * show post custom fields (espically usefull if your using your rss as an affliate feed)
+* ability to add cloud hosted media for improved video performance
 
 
 == Installation ==
